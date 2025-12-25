@@ -5,21 +5,21 @@
       "id": "２相コミット",
       "term": "２相コミット",
       "category": "Hardware",
-      "imagePath": "/images/２相コミット.webp",
+      "imagePath": "images/２相コミット.webp",
       "imageVersion": 1
     },
     {
       "id": "2分探索法",
       "term": "2分探索法",
       "category": "Network",
-      "imagePath": "/images/2分探索法.webp",
+      "imagePath": "images/2分探索法.webp",
       "imageVersion": 1
     },
     {
       "id": "３層クライアントサーバシステム",
       "term": "３層クライアントサーバシステム",
       "category": "Network",
-      "imagePath": "/images/３層クライアントサーバシステム.webp",
+      "imagePath": "images/３層クライアントサーバシステム.webp",
       "imageVersion": 1
     }
   ]
