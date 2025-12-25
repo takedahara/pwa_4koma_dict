@@ -1,4 +1,4 @@
-const CACHE_VERSION = "v1";
+const CACHE_VERSION = "v2";
 const APP_SHELL_CACHE = `app-shell-${CACHE_VERSION}`;
 const DATA_CACHE = `data-${CACHE_VERSION}`;
 
@@ -9,9 +9,10 @@ const APP_SHELL = [
   "app.js",
   "sw.js",
   "terms.json",
-  "manifest.webmanifest"
+  "manifest.webmanifest",
   // アイコンを置いたらここに追加してもOK:
-  // "/icons/icon-192.png", "/icons/icon-512.png"
+  "icons/icon-192.png", 
+  "icons/icon-512.png"
 ];
 
 self.addEventListener("install", (event) => {
