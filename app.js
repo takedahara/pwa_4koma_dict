@@ -19,8 +19,8 @@ let DATA_VERSION = 0;
 function setOnlinePill() {
   const on = navigator.onLine;
   onlinePill.textContent = on ? "online" : "offline";
-  onlinePill.style.borderColor = on ? "#d8f5d8" : "#ffe1e1";
-  onlinePill.style.background = on ? "#f2fff2" : "#fff5f5";
+  onlinePill.style.borderColor = on ? "rgba(52,211,153,.5)" : "rgba(251,113,133,.5)";
+  onlinePill.style.background = on ? "rgba(52,211,153,.10)" : "rgba(251,113,133,.10)";
 }
 window.addEventListener("online", setOnlinePill);
 window.addEventListener("offline", setOnlinePill);
@@ -44,12 +44,61 @@ function imageUrl(termObj) {
   return `${termObj.imagePath}?v=${encodeURIComponent(v)}`;
 }
 
+/* ===== 画像 全画面モーダル ===== */
+let imgModalEl = null;
+let imgModalImg = null;
+
+function ensureImgModal() {
+  if (imgModalEl) return;
+
+  imgModalEl = document.createElement("div");
+  imgModalEl.id = "imgModal";
+  imgModalEl.innerHTML = `
+    <button class="close" aria-label="close">×</button>
+    <img alt="">
+    <div class="hint">タップで閉じる / Escで閉じる</div>
+  `;
+  document.body.appendChild(imgModalEl);
+
+  imgModalImg = imgModalEl.querySelector("img");
+
+  imgModalEl.addEventListener("click", (e) => {
+    if (e.target === imgModalEl || e.target.classList.contains("close")) {
+      closeImgModal();
+    }
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeImgModal();
+  });
+}
+
+function openImgModal(src, alt = "") {
+  ensureImgModal();
+  imgModalImg.src = src;
+  imgModalImg.alt = alt;
+
+  imgModalEl.classList.add("open");
+  document.documentElement.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
+}
+
+function closeImgModal() {
+  if (!imgModalEl) return;
+  imgModalEl.classList.remove("open");
+
+  document.documentElement.style.overflow = "";
+  document.body.style.overflow = "";
+
+  // 任意：閉じたら読み込み解除
+  imgModalImg.src = "";
+}
+
 function buildCategories() {
   const set = new Set();
   for (const t of TERMS) if (t.category) set.add(t.category);
   const cats = Array.from(set).sort((a,b)=>a.localeCompare(b,"ja"));
 
-  // 既存optionを再構築
   categoryEl.innerHTML = `<option value="">カテゴリ：すべて</option>` +
     cats.map(c => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`).join("");
 }
@@ -95,16 +144,23 @@ function renderDetail(t) {
     <button id="backBtn">← 戻る</button>
     <h2 style="margin:12px 0 6px;">${escapeHtml(t.term)}</h2>
     <div class="muted">${escapeHtml(t.category || "")}</div>
-    <p style="line-height:1.5;">${escapeHtml(t.summary || "")}</p>
-    <img src="${url}" alt="${escapeHtml(t.term)}">
-    <div class="small" style="margin-top:8px;">id=${escapeHtml(t.id)} / imageVersion=${escapeHtml(t.imageVersion)}</div>
+    <p style="line-height:1.6; margin: 10px 0 0;">${escapeHtml(t.summary || "")}</p>
+
+    <img id="termImg" class="tap-to-zoom" src="${url}" alt="${escapeHtml(t.term)}">
+
+    <div class="small" style="margin-top:10px;">id=${escapeHtml(t.id)} / imageVersion=${escapeHtml(t.imageVersion)}</div>
   `;
+
   document.getElementById("backBtn").addEventListener("click", renderList);
+
+  // 画像タップで全画面
+  const img = document.getElementById("termImg");
+  img.addEventListener("click", () => openImgModal(url, t.term || ""));
+
   window.scrollTo({ top: 0 });
 }
 
 async function fetchTermsJson({ bypassCache = true } = {}) {
-  // 更新検知のため、terms.jsonはできるだけ最新を取りにいく
   const url = bypassCache ? `terms.json?ts=${Date.now()}` : `terms.json`;
   const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) throw new Error(`terms.json fetch failed: ${res.status}`);
@@ -116,8 +172,6 @@ async function fetchTermsJson({ bypassCache = true } = {}) {
 }
 
 function currentManifestSnapshot(terms) {
-  // どの画像が必要かを確定するためのスナップショット（差分判定用）
-  // id->imageVersion と dataVersion を保存しておく
   const map = {};
   for (const t of terms) {
     map[t.id] = {
@@ -147,13 +201,11 @@ function getLocalDataVersion() {
 }
 
 function diffImageUrls(newTerms, oldSnapshot) {
-  // 追加/更新が必要な画像URL（?v=付き）だけ返す
   const urls = [];
   for (const t of newTerms) {
     const old = oldSnapshot?.[t.id];
     const newV = t.imageVersion ?? 1;
 
-    // 新規 or バージョンが上がった or パスが変わった
     const changed = !old || old.imageVersion !== newV || old.imagePath !== t.imagePath;
     if (changed) urls.push(imageUrl(t));
   }
@@ -169,7 +221,6 @@ async function ensureSW() {
   await navigator.serviceWorker.register("sw.js");
   await navigator.serviceWorker.ready;
 
-  // controllerが付くまで初回はリロードが必要なことがある
   if (!navigator.serviceWorker.controller) {
     setProgress(0, "初回設定中", "一度だけ自動リロードする");
     setTimeout(() => location.reload(), 600);
@@ -201,7 +252,6 @@ async function initApp() {
   const ok = await ensureSW();
   if (!ok) return;
 
-  // terms.json読み込み
   const { dataVersion, terms } = await fetchTermsJson();
   DATA_VERSION = dataVersion;
   TERMS = terms;
@@ -210,7 +260,6 @@ async function initApp() {
   buildCategories();
   renderList();
 
-  // 初回（またはデータ更新後）の自動キャッシュ
   await autoCacheIfNeeded({ forceFull: false });
 }
 
@@ -227,10 +276,7 @@ async function autoCacheIfNeeded({ forceFull = false } = {}) {
 
   const newSnapshot = currentManifestSnapshot(TERMS);
 
-  // 初回：全部キャッシュ
   const isFirst = !oldSnapshot || localV === 0;
-
-  // 更新あり（dataVersionが上がった）なら差分更新
   const hasUpdate = DATA_VERSION !== localV;
 
   if (forceFull || isFirst) {
@@ -238,7 +284,6 @@ async function autoCacheIfNeeded({ forceFull = false } = {}) {
     setProgress(0, "初回/全量キャッシュ開始", `${urlsAll.length}枚（画面を開いたまま）`);
     postToSW({ type: "CACHE_URLS", title: "全量キャッシュ中", urls: urlsAll });
 
-    // スナップショット更新（キャッシュ開始時点で保存しておく）
     saveLocalSnapshot({ dataVersion: DATA_VERSION, snapshot: newSnapshot });
     return;
   }
@@ -257,7 +302,6 @@ async function autoCacheIfNeeded({ forceFull = false } = {}) {
     return;
   }
 
-  // 変更なし
   setProgress(100, "キャッシュ済み", "変更なし。オフラインOK");
 }
 
@@ -284,11 +328,9 @@ btnDiff.addEventListener("click", async () => {
 
 btnFull.addEventListener("click", async () => {
   try {
-    // キャッシュを消して全量再キャッシュ
     setProgress(0, "キャッシュ削除中", "少し待って");
     postToSW({ type: "CLEAR_CACHES" });
 
-    // 少し待ってから全量キャッシュ
     setTimeout(async () => {
       try {
         await autoCacheIfNeeded({ forceFull: true });
@@ -304,5 +346,4 @@ btnFull.addEventListener("click", async () => {
 qEl.addEventListener("input", renderList);
 categoryEl.addEventListener("change", renderList);
 
-// 起動
 initApp().catch(e => setProgress(0, "起動失敗", String(e)));
