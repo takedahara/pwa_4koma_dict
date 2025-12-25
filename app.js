@@ -105,7 +105,7 @@ function renderDetail(t) {
 
 async function fetchTermsJson({ bypassCache = true } = {}) {
   // 更新検知のため、terms.jsonはできるだけ最新を取りにいく
-  const url = bypassCache ? `/terms.json?ts=${Date.now()}` : `/terms.json`;
+  const url = bypassCache ? `terms.json?ts=${Date.now()}` : `terms.json`;
   const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) throw new Error(`terms.json fetch failed: ${res.status}`);
   const data = await res.json();
@@ -166,7 +166,7 @@ async function ensureSW() {
     return false;
   }
 
-  await navigator.serviceWorker.register("/sw.js");
+  await navigator.serviceWorker.register("sw.js");
   await navigator.serviceWorker.ready;
 
   // controllerが付くまで初回はリロードが必要なことがある

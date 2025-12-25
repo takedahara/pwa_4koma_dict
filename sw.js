@@ -5,11 +5,11 @@ const DATA_CACHE = `data-${CACHE_VERSION}`;
 // App shell（最低限）
 const APP_SHELL = [
   "/",
-  "/index.html",
-  "/app.js",
-  "/sw.js",
-  "/terms.json",
-  "/manifest.webmanifest"
+  "index.html",
+  "app.js",
+  "sw.js",
+  "terms.json",
+  "manifest.webmanifest"
   // アイコンを置いたらここに追加してもOK:
   // "/icons/icon-192.png", "/icons/icon-512.png"
 ];
