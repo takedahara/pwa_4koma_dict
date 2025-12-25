@@ -1,25 +1,25 @@
 {
-  "dataVersion": 2,
+  "dataVersion": 3,
   "terms": [
     {
-      "id": "２相コミット",
-      "term": "２相コミット",
+      "id": "二相コミット",
+      "term": "二相コミット",
       "category": "Hardware",
-      "imagePath": "images/２相コミット.webp",
+      "imagePath": "images/二相コミット.webp",
       "imageVersion": 1
     },
     {
-      "id": "2分探索法",
-      "term": "2分探索法",
+      "id": "二分探索法",
+      "term": "二分探索法",
       "category": "Network",
-      "imagePath": "images/2分探索法.webp",
+      "imagePath": "images/二分探索法.webp",
       "imageVersion": 1
     },
     {
-      "id": "３層クライアントサーバシステム",
-      "term": "３層クライアントサーバシステム",
+      "id": "三層クライアントサーバシステム",
+      "term": "三層クライアントサーバシステム",
       "category": "Network",
-      "imagePath": "images/３層クライアントサーバシステム.webp",
+      "imagePath": "images/三層クライアントサーバシステム.webp",
       "imageVersion": 1
     }
   ]
