@@ -1,5 +1,6 @@
+
 {
-  "dataVersion": 3,
+  "dataVersion": 4,
   "terms": [
     {
       "id": "二相コミット",
@@ -20,6 +21,344 @@
       "term": "三層クライアントサーバシステム",
       "category": "Network",
       "imagePath": "images/三層クライアントサーバシステム.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "３層スキーマ構造",
+      "term": "３層スキーマ構造",
+      "category": "Uncategorized",
+      "imagePath": "images/３層スキーマ構造.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "AES",
+      "term": "AES",
+      "category": "Uncategorized",
+      "imagePath": "images/AES.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "AH(Authentication Header)",
+      "term": "AH(Authentication Header)",
+      "category": "Uncategorized",
+      "imagePath": "images/AH.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "AI(人工知能)",
+      "term": "AI(人工知能)",
+      "category": "Uncategorized",
+      "imagePath": "images/AI.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "ALU",
+      "term": "ALU",
+      "category": "Uncategorized",
+      "imagePath": "images/ALU.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "AMP(Asymmetrical Multiple Processor)",
+      "term": "AMP(Asymmetrical Multiple Processor)",
+      "category": "Uncategorized",
+      "imagePath": "images/AMP.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "AND",
+      "term": "AND",
+      "category": "Uncategorized",
+      "imagePath": "images/AND.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "ASIC(Application Specific Integrated Circuit)",
+      "term": "ASIC(Application Specific Integrated Circuit)",
+      "category": "Uncategorized",
+      "imagePath": "images/ASIC.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "ASCII(アスキー)",
+      "term": "ASCII(アスキー)",
+      "category": "Uncategorized",
+      "imagePath": "images/ASCII.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "As-Isモデル",
+      "term": "As-Isモデル",
+      "category": "Uncategorized",
+      "imagePath": "images/As-Isモデル.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "ATA",
+      "term": "ATA",
+      "category": "Uncategorized",
+      "imagePath": "images/ATA.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "authenticity(真正性)",
+      "term": "authenticity(真正性)",
+      "category": "Uncategorized",
+      "imagePath": "images/authenticity(真正性).webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "AVL木",
+      "term": "AVL木",
+      "category": "Uncategorized",
+      "imagePath": "images/AVL木.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "BASIC(ベーシック)",
+      "term": "BASIC(ベーシック)",
+      "category": "Uncategorized",
+      "imagePath": "images/BASIC.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "BCC(Blind Carbon Copy)",
+      "term": "BCC(Blind Carbon Copy)",
+      "category": "Uncategorized",
+      "imagePath": "images/BCC.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "BCP(Business Continuity Plan:事業継続計画)",
+      "term": "BCP(Business Continuity Plan:事業継続計画)",
+      "category": "Uncategorized",
+      "imagePath": "images/BCP(Business Continuity Plan).webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "Behavior Method(ビヘイビア法)",
+      "term": "Behavior Method(ビヘイビア法)",
+      "category": "Uncategorized",
+      "imagePath": "images/Behavior Method.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "BI(Business Intelligence)",
+      "term": "BI(Business Intelligence)",
+      "category": "Uncategorized",
+      "imagePath": "images/BI(Business Intelligence).webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "BIシステム",
+      "term": "BIシステム",
+      "category": "Uncategorized",
+      "imagePath": "images/BIツール.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "bit(ビット)",
+      "term": "bit(ビット)",
+      "category": "Uncategorized",
+      "imagePath": "images/bit.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "Bluetooth(ブルートゥース)",
+      "term": "Bluetooth(ブルートゥース)",
+      "category": "Uncategorized",
+      "imagePath": "images/Bluetooth.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "BNF記法(Backus-Naur Form)",
+      "term": "BNF記法(Backus-Naur Form)",
+      "category": "Uncategorized",
+      "imagePath": "images/BNF.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "bps(Bits Per Second)",
+      "term": "bps(Bits Per Second)",
+      "category": "Uncategorized",
+      "imagePath": "images/bps.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "BPO(Business Process Outsourcing)",
+      "term": "BPO(Business Process Outsourcing)",
+      "category": "Uncategorized",
+      "imagePath": "images/BPO(Business Process Outsourcing).webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "Byte(バイト)",
+      "term": "Byte(バイト)",
+      "category": "Uncategorized",
+      "imagePath": "images/Byte.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "C&Cサーバ",
+      "term": "C&Cサーバ",
+      "category": "Uncategorized",
+      "imagePath": "images/C&Cサーバ.webp",
+      "imageVersion": 1
+    },
+
+    {
+      "id": "CAPTCHA",
+      "term": "CAPTCHA",
+      "category": "Uncategorized",
+      "imagePath": "images/CAPTCHA.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CASEツール",
+      "term": "CASEツール",
+      "category": "Uncategorized",
+      "imagePath": "images/CASEツール.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CC",
+      "term": "CC",
+      "category": "Uncategorized",
+      "imagePath": "images/CC.webp",
+      "imageVersion": 1
+    },
+    
+    {
+      "id": "CD-ROM",
+      "term": "CD-ROM",
+      "category": "Uncategorized",
+      "imagePath": "images/CD-ROM.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CEO(Chief Executive Officer)",
+      "term": "CEO(Chief Executive Officer)",
+      "category": "Uncategorized",
+      "imagePath": "images/CEO.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CGI(Common Gateway Interface)",
+      "term": "CGI(Common Gateway Interface)",
+      "category": "Uncategorized",
+      "imagePath": "images/CGI.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CGM(Consumer Generated Media)",
+      "term": "CGM(Consumer Generated Media)",
+      "category": "Uncategorized",
+      "imagePath": "images/CGM.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CIDR(Classless Inter-Domain Routing)",
+      "term": "CIDR(Classless Inter-Domain Routing)",
+      "category": "Uncategorized",
+      "imagePath": "images/CIDR.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CIO(Chief Information Officer)",
+      "term": "CIO(Chief Information Officer)",
+      "category": "Uncategorized",
+      "imagePath": "images/CIO.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CISC",
+      "term": "CISC",
+      "category": "Uncategorized",
+      "imagePath": "images/CISC.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CMMI(Capability Maturity Model Integration:能力成熟度モデル統合)",
+      "term": "CMMI(Capability Maturity Model Integration:能力成熟度モデル統合)",
+      "category": "Uncategorized",
+      "imagePath": "images/CMMI.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "COBOL(コボル)",
+      "term": "COBOL(コボル)",
+      "category": "Uncategorized",
+      "imagePath": "images/COBOL.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CPI(Clock cycles Per Instruction)",
+      "term": "CPI(Clock cycles Per Instruction)",
+      "category": "Uncategorized",
+      "imagePath": "images/CPI.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "cps",
+      "term": "cps",
+      "category": "Uncategorized",
+      "imagePath": "images/CPS.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CPU(Central Processing Unit:中央処理装置)",
+      "term": "CPU(Central Processing Unit:中央処理装置)",
+      "category": "Uncategorized",
+      "imagePath": "images/CPU.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CRC(巡回冗長検査)",
+      "term": "CRC(巡回冗長検査)",
+      "category": "Uncategorized",
+      "imagePath": "images/CRC.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CRM(Customer Relationship Management)",
+      "term": "CRM(Customer Relationship Management)",
+      "category": "Uncategorized",
+      "imagePath": "images/CRM.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CRTディスプレイ",
+      "term": "CRTディスプレイ",
+      "category": "Uncategorized",
+      "imagePath": "images/CRTディスプレイ.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CSIRTマテリアル",
+      "term": "CSIRTマテリアル",
+      "category": "Uncategorized",
+      "imagePath": "images/CSIRT.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CSMA/CD方式",
+      "term": "CSMA/CD方式",
+      "category": "Uncategorized",
+      "imagePath": "images/CSMA_CD方式.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "CUI(Character User Interface)",
+      "term": "CUI(Character User Interface)",
+      "category": "Uncategorized",
+      "imagePath": "images/CUI.webp",
+      "imageVersion": 1
+    },
+    {
+      "id": "C言語",
+      "term": "C言語",
+      "category": "Uncategorized",
+      "imagePath": "images/C言語.webp",
       "imageVersion": 1
     }
   ]
